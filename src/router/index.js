@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Bootstrap from 'bootstrap-vue'
+import BootstrapVue from 'bootstrap-vue'
 
-Vue.use(Bootstrap);
+Vue.use(BootstrapVue);
 Vue.use(Router);
 
 export default new Router({
