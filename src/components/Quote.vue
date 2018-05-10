@@ -20,10 +20,12 @@
     background-color: aliceblue;
     font-size: 18px;
     color: #034561;
+    padding: auto;
+    margin: auto;
   }
   .quote{
     cursor: pointer;
-    padding: 3%;
+    text-align: justify;
   }
   .quote:hover{
     border: 1px solid #4FB783;
