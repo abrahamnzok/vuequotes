@@ -1,8 +1,7 @@
 <template>
   <div id="app" class="container">
-    <div class="col-lg-12">
-      <newquote @oncreation="createQuote"/>
-    </div>
+    <progress-bar :n-quotes="quotes.length" :limit="limit"/>
+    <newquote @oncreation="createQuote"/>
     <QuoteGrid :quotes="quotes" @quoteDeleted="deleteQuotes"/>
     <div class="row">
       <div class="col-sm-12 text-center">
@@ -17,10 +16,11 @@
 <script>
   import QuoteGrid from "./components/QuoteGrid";
   import Newquote from "./components/Newquote";
+  import ProgressBar from "./components/ProgressBar";
 
   export default {
     name: 'App',
-    components: {Newquote, QuoteGrid},
+    components: {ProgressBar, Newquote, QuoteGrid},
     data: function () {
       return {
         quotes: ['No tablecloths, silver cutlery, fine porcelain, sommeliers, or deep wine lists - that\'s fine. But no service or hospitality? That\'s going too far\n'],
@@ -30,7 +30,9 @@
     },
     methods: {
       createQuote(quote) {
-        this.quotes.push(quote);
+        if(quote && this.quotes.length < 10){
+          this.quotes.push(quote);
+        }
       },
       deleteQuotes(index) {
         this.quotes.splice(index, 1);
